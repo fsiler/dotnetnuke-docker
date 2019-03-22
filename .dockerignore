@@ -2,4 +2,5 @@
 
 # Ignore All Except:
 !setup.ps1
+!prereq.ps1
 !LICENSE

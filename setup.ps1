@@ -1,15 +1,6 @@
-#==================
-# Global Flags ====
-$ErrorActionPreference = 'Stop'
-#==================
-# Variables =======
-$sitesDir = "C:/Sites"
-$websiteDir = "$sitesDir/DotNetNuke"
-$zipFile = "C:/DotNetNuke.zip"
-#==================
-# Main ============
-Install-Module xWebAdministraion -Force
-Install-Module cNtfsAccessControl -Force
+$zipFile = "C:\DotNetNuke.zip"
+$sitesDir = "C:\Sites"
+$websiteDir = "$sitesDir\DotNetNuke"
 
 Configuration DNNSetup
 {
@@ -50,8 +41,7 @@ Configuration DNNSetup
             }
             DependsOn = @("[File]DotNetNuke_WebsiteDir","[xWebAppPool]DotNetNuke_AppPool")
         }
-        xWebsite DotNetNuke_Site
-        {
+        xWebsite DotNetNuke_Site {
             Name = "DotNetNuke"
             Ensure = "Present"
             PhysicalPath = $websiteDir
@@ -60,8 +50,7 @@ Configuration DNNSetup
             {
                 Protocol = "http"
                 IPAddress = "*"
-                Port = "80"
-                Hostname = "dnndev.me"
+                Port = "88"
             }
             ApplicationPool = "DotNetNuke"
             PreloadEnabled = $true
