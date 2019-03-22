@@ -1,2 +1,5 @@
 version: 0.0.{build}
 image: Visual Studio 2017
+
+build_script:
+  - docker build -t fsiler/dotnetnuke:latest .
