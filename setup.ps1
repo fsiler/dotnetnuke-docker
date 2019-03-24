@@ -41,6 +41,11 @@ Configuration DNNSetup
             }
             DependsOn = @("[File]DotNetNuke_WebsiteDir","[xWebAppPool]DotNetNuke_AppPool")
         }
+        xWebsite Default_Site {
+            Name = "Default Web Site"
+	    Ensure = "Absent"
+            State = "Stopped"
+        }
         xWebsite DotNetNuke_Site {
             Name = "DotNetNuke"
             Ensure = "Present"
@@ -50,7 +55,7 @@ Configuration DNNSetup
             {
                 Protocol = "http"
                 IPAddress = "*"
-                Port = "88"
+                Port = "80"
             }
             ApplicationPool = "DotNetNuke"
             PreloadEnabled = $true
@@ -59,7 +64,7 @@ Configuration DNNSetup
             {
                 Anonymous = $true
             }
-            DependsOn = @("[File]DotNetNuke_WebsiteDir", "[xWebAppPool]DotNetNuke_AppPool")
+            DependsOn = @("[File]DotNetNuke_WebsiteDir", "[xWebAppPool]DotNetNuke_AppPool", "[xWebSite]Default_Site")
         }
     }
 }
