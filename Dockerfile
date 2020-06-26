@@ -1,6 +1,7 @@
-FROM microsoft/iis
+#FROM microsoft/iis
+FROM mcr.microsoft.com/windows/servercore/iis:latest
 
-ADD https://github.com/dnnsoftware/Dnn.Platform/releases/download/v9.2.2/DNN_Platform_9.2.2.178_Install.zip ./DotNetNuke.zip
+ADD https://github.com/dnnsoftware/Dnn.Platform/releases/download/v9.4.4/DNN_Platform_9.4.4_Install.zip ./DotNetNuke.zip
 ADD . /
 
 #RUN powershell -NoProfile -Command ls
