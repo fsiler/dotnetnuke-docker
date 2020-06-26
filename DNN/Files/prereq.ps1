@@ -1,7 +1,7 @@
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 choco feature enable -n=allowGlobalConfirmation
 
-choco install dotnet4.5.2
+choco install dotnet4.7.1
 Add-WindowsFeature Web-Asp-Net45 
 
 Install-PackageProvider -Name NuGet -force
